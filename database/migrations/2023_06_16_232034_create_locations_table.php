@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('celebrity',30);//出演者
+            $table->string('date',10);//放送日
+            $table->string('place',50);//〇〇県〇〇市
+            $table->string('overview',1000)->nullable();//ロケ概要
+            $table->string('key_phrase',100)->nullable();//ロケ中で最も面白い言葉
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('locations');
     }
 };
