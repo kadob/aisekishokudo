@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/locations',[LocationController::class, 'showLocalist']);
+Route::get('/locations/{location}',[LocationController::class,'showLocadetail'])->name('showLocadetail');
 
 Route::get('/', function () {
     return view('welcome');
