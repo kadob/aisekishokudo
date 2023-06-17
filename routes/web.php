@@ -19,9 +19,14 @@ use App\Http\Controllers\MapController;
 Route::get('/locations',[LocationController::class, 'showLocalist']);
 Route::get('/locations/{location}',[LocationController::class,'showLocadetail'])->name('showLocadetail');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',function (){
+    return view('maps/map');
 });
+Route::get('/maps/{map}',[MapController::class,'showMapspot']);
+
+/**Route::get('/', function () {
+    return view('welcome');
+});**/
 
 Route::get('/dashboard', function () {
     return view('dashboard');

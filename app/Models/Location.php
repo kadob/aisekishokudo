@@ -13,4 +13,9 @@ class Location extends Model
     
     }
     use HasFactory;
+    
+    public function maps()
+    {
+        return $this->hasMany(Map::class);
+    }
 }
