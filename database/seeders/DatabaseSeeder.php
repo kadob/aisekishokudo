@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LocationSeeder::class,
             MapSeeder::class,
-            //UserSeeder::class,
-            //FavlocationSeeder::class,
-            //FavmapSeeder::class,
+            UserSeeder::class,
+            NicelocationSeeder::class,
+            //NicemapSeeder::class,
         ]);
     }
 }

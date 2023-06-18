@@ -18,4 +18,9 @@ class Location extends Model
     {
         return $this->hasMany(Map::class);
     }
+    
+    public function nicelocations()
+    {
+        return $this->hasMany(Nicelocation::class);    
+    }
 }
