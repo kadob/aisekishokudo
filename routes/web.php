@@ -17,6 +17,7 @@ use App\Http\Controllers\MapController;
 */
 
 Route::get('/locations',[LocationController::class, 'showLocalist']);
+Route::get('/locations/search',[LocationController::class,'searchLocation'])->name('searchLocation');
 Route::get('/locations/{location}',[LocationController::class,'showLocadetail'])->name('showLocadetail');
 
 Route::get('/',function (){

@@ -11,6 +11,12 @@
         </header>
         <main>
             <h1>ロケ一覧</h1>
+            <form method="GET" action="{{ route('searchLocation') }}">
+                <input type="search" placeholder="出演者名" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                    <div>
+                        <button type="submit">検索</button>
+                    </div>
+            </form>
             <div>
                 @foreach ($locations as $location)
                     <div>
