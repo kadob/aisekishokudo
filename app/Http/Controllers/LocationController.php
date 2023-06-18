@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Location;
+use App\Models\Nicelocation;
 
 class LocationController extends Controller
 {
@@ -40,6 +41,7 @@ class LocationController extends Controller
     
     public function showLocadetail(Location $location)
     {
-        return view('locations/location')->with([ 'location' => $location]); 
+        $nicelocation=Nicelocation::where('location_id',$location->id)->where('user_id',auth()->user()->id)->first();
+        return view('locations.location',compact('location','nicelocation')); 
     }
 }

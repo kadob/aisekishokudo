@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\NiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,14 @@ use App\Http\Controllers\MapController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::controller(LocationController::class)->middleware(['auth'])->group(function(){
+    Route::get('/locations','showLocalist');
+    Route::get('/locations/search','searchLocation')->name('searchLocation');
+    Route::get('/locations/{location}','showLocadetail')->name('showLocadetail');
+});
 
-Route::get('/locations',[LocationController::class, 'showLocalist']);
-Route::get('/locations/search',[LocationController::class,'searchLocation'])->name('searchLocation');
-Route::get('/locations/{location}',[LocationController::class,'showLocadetail'])->name('showLocadetail');
+Route::get('/nice/locations/{location}',[NiceController::class,'niceLoca'])->name('nice');
+Route::get('/unnice/locations/{location}',[NiceController::class,'unniceLoca'])->name('unnice');
 
 Route::get('/',function (){
     return view('maps/map');

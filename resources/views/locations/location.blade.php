@@ -25,6 +25,23 @@
                 <h2>キーフレーズ</h2>
                 <p>{{$location->key_phrase}}</p>
             </div>
+            <span>
+                @if($nicelocation)
+	                <a href="{{ route('unnice',$location)}}" class="btn btn-success btn-sm">
+	                いいね
+		                <span class="badge">
+		                {{ $location->nicelocations()->count() }}
+		                </span>
+	                </a>
+                @else
+	                <a href="{{ route('nice',$location)}}" class="btn btn-secondary btn-sm">
+		            いいね
+		                <span class="badge">
+			            {{ $location->nicelocations()->count() }}
+		                </span>
+	                </a>
+                @endif
+            </span>
         </main>
         <footer>
             <nav>
