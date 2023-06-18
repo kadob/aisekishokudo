@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             MapSeeder::class,
             UserSeeder::class,
             NicelocationSeeder::class,
-            //NicemapSeeder::class,
+            NicemapSeeder::class,
         ]);
     }
 }
