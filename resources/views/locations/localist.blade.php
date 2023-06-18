@@ -17,6 +17,7 @@
                         <button type="submit">検索</button>
                     </div>
             </form>
+            <h2><a href = "/locations/locapop">人気ロケランキング</a></h2>
             <div>
                 @foreach ($locations as $location)
                     <div>
@@ -35,7 +36,7 @@
         <footer>
             <nav>
                 <ul>
-                    <li><a href="/posts/create">投稿</a></li>
+                    <!--<li><a href="/posts/create">投稿</a></li>-->
                     <li><a href="/">マップ</a></li>
                     <li><a href="/locations">検索</a></li>
                 </ul>

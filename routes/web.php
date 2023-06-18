@@ -19,6 +19,7 @@ use App\Http\Controllers\NiceController;
 Route::controller(LocationController::class)->middleware(['auth'])->group(function(){
     Route::get('/locations','showLocalist');
     Route::get('/locations/search','searchLocation')->name('searchLocation');
+    Route::get('/locations/locapop','showLocapop');
     Route::get('/locations/{location}','showLocadetail')->name('showLocadetail');
 });
 

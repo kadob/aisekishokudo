@@ -44,4 +44,10 @@ class LocationController extends Controller
         $nicelocation=Nicelocation::where('location_id',$location->id)->where('user_id',auth()->user()->id)->first();
         return view('locations.location',compact('location','nicelocation')); 
     }
+    
+    public function showLocapop()
+    {
+        $locations = Location::withCount('nicelocations')->orderBy('nicelocations_count','desc')->get();
+        return view('locations/loca_sort_by_pop',compact('locations'));
+    }
 }
