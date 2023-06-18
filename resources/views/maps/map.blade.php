@@ -32,7 +32,7 @@
 	    <footer>
             <nav>
                 <ul>
-                    <li><a href="/posts/create">投稿</a></li>
+                    <!--<li><a href="/posts/create">投稿</a></li>-->
                     <li><a href="/">マップ</a></li>
                     <li><a href="/locations">検索</a></li>
                 </ul>
