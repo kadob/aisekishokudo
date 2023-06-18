@@ -24,6 +24,23 @@
                 <h2>キーワード</h2>
                 <p>{{$map->key_word}}</p>
             </div>
+            <span>
+                @if($nicemap)
+	                <a href="{{ route('donot_good',$map)}}" class="btn btn-success btn-sm">
+	                いいね
+		                <span class="badge">
+		                {{ $map->nicemaps()->count() }}
+		                </span>
+	                </a>
+                @else
+	                <a href="{{ route('do_good',$map)}}" class="btn btn-secondary btn-sm">
+		            いいね
+		                <span class="badge">
+			            {{ $map->nicemaps()->count() }}
+		                </span>
+	                </a>
+                @endif
+            </span>
         </main> 
         <footer>
             <nav>

@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Nicelocation::class);   
     }
+    
+    public function nicemaps(){
+        return $this->hasMany(Nicemap::class);
+    }
 }

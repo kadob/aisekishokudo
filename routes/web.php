@@ -16,20 +16,24 @@ use App\Http\Controllers\NiceController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',function (){
+    return view('maps/map');
+});
+
+Route::controller(MapController::class)->middleware(['auth'])->group(function(){
+    Route::get('/maps/{map}','showMapspot');
+});
+Route::get('/nice/maps/{map}',[NiceController::class,'nicemap'])->name('do_good');
+Route::get('/unnice/maps/{map}',[NiceController::class,'unnicemap'])->name('donot_good');
+
 Route::controller(LocationController::class)->middleware(['auth'])->group(function(){
     Route::get('/locations','showLocalist');
     Route::get('/locations/search','searchLocation')->name('searchLocation');
     Route::get('/locations/locapop','showLocapop');
     Route::get('/locations/{location}','showLocadetail')->name('showLocadetail');
 });
-
 Route::get('/nice/locations/{location}',[NiceController::class,'niceLoca'])->name('nice');
 Route::get('/unnice/locations/{location}',[NiceController::class,'unniceLoca'])->name('unnice');
-
-Route::get('/',function (){
-    return view('maps/map');
-});
-Route::get('/maps/{map}',[MapController::class,'showMapspot']);
 
 /**Route::get('/', function () {
     return view('welcome');

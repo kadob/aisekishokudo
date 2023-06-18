@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Map extends Model
+class Nicemap extends Model
 {
     use HasFactory;
     
-    public function location()
+    public function map()
     {
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(Map::class);    
     }
     
-    public function nicemaps()
+    public function user()
     {
-        return $this->hasMany(Nicemap::class);
+        return $this->belongsTo(User::class);
     }
 }
