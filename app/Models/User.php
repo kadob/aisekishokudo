@@ -42,11 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    //nicelocation：user＝多：１のリレーションを組む
     public function nicelocations()
     {
         return $this->hasMany(Nicelocation::class);   
     }
     
+    //nicemap：user＝多：１のリレーションを組む
     public function nicemaps(){
         return $this->hasMany(Nicemap::class);
     }

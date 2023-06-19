@@ -24,6 +24,7 @@
                 <h2>キーワード</h2>
                 <p>{{$map->key_word}}</p>
             </div>
+            <!--マップいいね機能ここから-->
             <span>
                 @if($nicemap)
 	                <a href="{{ route('donot_good',$map)}}" class="btn btn-success btn-sm">
@@ -41,6 +42,7 @@
 	                </a>
                 @endif
             </span>
+            <!--マップいいね機能ここまで-->
         </main> 
         <footer>
             <nav>

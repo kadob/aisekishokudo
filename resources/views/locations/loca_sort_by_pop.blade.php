@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>人気ロケランキング</h1>
-            @foreach($locations as $location)
+            @foreach($locations as $location)<!--LocationControllerのshowLocapopメソッドで受け取ったlocationsを回す-->
                 <h2>いいね数</h2>
                     <p>{{ $location->nicelocations_count }}</p>
                 <h2>日付</h2>

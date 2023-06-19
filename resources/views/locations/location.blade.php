@@ -26,6 +26,7 @@
                 <p>{{$location->key_phrase}}</p>
             </div>
             <span>
+                <!--いいね機能ここから-->
                 @if($nicelocation)
 	                <a href="{{ route('unnice',$location)}}" class="btn btn-success btn-sm">
 	                いいね
@@ -41,6 +42,7 @@
 		                </span>
 	                </a>
                 @endif
+                <!--いいね機能ここまで-->
             </span>
         </main>
         <footer>
