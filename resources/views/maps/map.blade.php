@@ -8,6 +8,7 @@
     </head>
     <body>
         <header>
+            <!--ログイン機能ここから-->
             <div>
                 @if (Route::has('login'))
                     <div>
@@ -23,11 +24,14 @@
                 @endif
                 <a href="/profile">プロフィール</a>
             </div>
+            <!--ログイン機能ここまで-->
         </header>
         <main>
+            <!--マップ機能ここから-->
             <div id="map" style="height:400px"></div>
 	        <script src="{{ asset('/mapspot/mapspot.js') }}"></script>
 	        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.map_key')}}&callback=initMap" async defer></script>
+	        <!--マップ機能ここまで-->
 	    </main>
 	    <footer>
             <nav>

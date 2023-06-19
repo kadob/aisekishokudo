@@ -11,24 +11,30 @@
         </header>
         <main>
             <h1>ロケ一覧</h1>
+            <!--検索機能ここから-->
             <form method="GET" action="{{ route('searchLocation') }}">
-                <input type="search" placeholder="出演者名" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                <input type="search" placeholder="出演者名" name="search" value="@if (isset($search)) {{ $search }} @endif"><!--$searchが存在するかしないかで条件分岐-->
                     <div>
                         <button type="submit">検索</button>
                     </div>
             </form>
+            <!--検索機能ここまで-->
+            <!--人気ロケランキング画面に行く-->
             <h2><a href = "/locations/locapop">人気ロケランキング</a></h2>
             <div>
+                <!--LocationControllerのshowLocalistメソッドで受け取ったlocationsを回す-->
                 @foreach ($locations as $location)
                     <div>
-                    <!--画像-->
+                    <!--ここで画像を挟む-->
                         <p>{{$location->date}}</p>
                         <p>
+                            <!--ロケ詳細画面に行く-->
                             <a href="/locations/{{$location->id}}">{{$location->celebrity}}</a>
-                        </p>    
+                        </p>
                     </div>
                 @endforeach
             </div>
+            <!--ページネーション-->
             <div class='paginate'>
                 {{ $locations->links() }}
             </div>

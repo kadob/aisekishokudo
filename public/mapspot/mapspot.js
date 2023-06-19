@@ -1,9 +1,10 @@
 function initMap() {
-    map = document.getElementById("map");
-    let tokyoTower = {lat: 35.6585769, lng: 139.7454506};
-    opt = {zoom: 13,center: tokyoTower,};
-    mapObj = new google.maps.Map(map, opt);
+    map = document.getElementById("map");//map.blade.phpの<div id="map">と<div>に囲まれた部分を代入
+    let tokyoTower = {lat: 35.6585769, lng: 139.7454506};//東京タワーの緯度経度を設定
+    opt = {zoom: 13,center: tokyoTower,};//初期設定：13のズーム度合、上記の位置の東京タワーを中心にする　　
+    mapObj = new google.maps.Map(map, opt);//mapとoptを初期設定にしたグーグルマップインスタンスを生成
     
+    //let 店の名前 = {緯度,軽度};で場所を定義
     let 田舎館駅 = {lat:40.63720278160614, lng:140.57089387609335};
     let かねちゃん = {lat:40.630404287231606, lng:140.5501646618432};
     let 創作料理御幸 = {lat:40.64502680585057, lng:140.5965317321646};
@@ -56,11 +57,13 @@ function initMap() {
     let きたろう = {lat:34.733839779228205, lng:134.27333724142449};
     let たぬき山展望台 = {lat:34.70074490213606, lng:134.28790518010737};
     
-    marker = new google.maps.Marker({position: 田舎館駅,
-            map: mapObj,
-            title: '田舎館駅',
+    //マーカーを生成。
+    marker = new google.maps.Marker({position: 田舎館駅,//８行目の田舎館村の位置に
+            map: mapObj,//mapObjというmapの上に
+            title: '田舎館駅',//ホバーしたときに田舎館村と表示するように
     });
     
+    //マーカーをクリックしたら、マップ詳細画面に移動。
     marker.addListener("click", () => {
          window.location.href = '/maps/1';
     });

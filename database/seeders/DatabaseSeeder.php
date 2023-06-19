@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         
+        //seederを呼び出す
         $this->call([
             LocationSeeder::class,
             MapSeeder::class,

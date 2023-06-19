@@ -9,10 +9,12 @@ class Nicelocation extends Model
 {
     use HasFactory;
     
+    //nicelocation：user＝多：１のリレーションを組む
     public function user(){
         return $this->belongsTo(User::class);
     }
     
+    //nicelocation：location＝多：１のリレーションを組む
     public function location(){
         return $this->belongsTo(Locaiton::class);    
     }

@@ -16,24 +16,26 @@ use App\Http\Controllers\NiceController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//アプリケーションのホーム画面
 Route::get('/',function (){
     return view('maps/map');
 });
-
+//マップ詳細画面を表示（認証ユーザーのみ）
 Route::controller(MapController::class)->middleware(['auth'])->group(function(){
     Route::get('/maps/{map}','showMapspot');
 });
-Route::get('/nice/maps/{map}',[NiceController::class,'nicemap'])->name('do_good');
-Route::get('/unnice/maps/{map}',[NiceController::class,'unnicemap'])->name('donot_good');
+Route::get('/nice/maps/{map}',[NiceController::class,'nicemap'])->name('do_good');//マップにいいねをする
+Route::get('/unnice/maps/{map}',[NiceController::class,'unnicemap'])->name('donot_good');//マップのいいねを解除する
 
+//認証ユーザーのみ
 Route::controller(LocationController::class)->middleware(['auth'])->group(function(){
-    Route::get('/locations','showLocalist');
-    Route::get('/locations/search','searchLocation')->name('searchLocation');
-    Route::get('/locations/locapop','showLocapop');
-    Route::get('/locations/{location}','showLocadetail')->name('showLocadetail');
+    Route::get('/locations','showLocalist');//ロケリスト画面を表示
+    Route::get('/locations/search','searchLocation')->name('searchLocation');//ロケ検索
+    Route::get('/locations/locapop','showLocapop');//ロケ人気ランキングを表示
+    Route::get('/locations/{location}','showLocadetail')->name('showLocadetail');//ロケ詳細画面を表示
 });
-Route::get('/nice/locations/{location}',[NiceController::class,'niceLoca'])->name('nice');
-Route::get('/unnice/locations/{location}',[NiceController::class,'unniceLoca'])->name('unnice');
+Route::get('/nice/locations/{location}',[NiceController::class,'niceLoca'])->name('nice');//ロケにいいねをする
+Route::get('/unnice/locations/{location}',[NiceController::class,'unniceLoca'])->name('unnice');//ロケのいいねを解除する
 
 /**Route::get('/', function () {
     return view('welcome');
