@@ -25,8 +25,15 @@ Route::get('/',function (){
 Route::controller(MapController::class)->middleware(['auth'])->group(function(){
     Route::get('/maps/{map}','showMapspot');
 });
-Route::get('/nice/maps/{map}',[NiceController::class,'nicemap'])->name('do_good');//マップにいいねをする
-Route::get('/unnice/maps/{map}',[NiceController::class,'unnicemap'])->name('donot_good');//マップのいいねを解除する
+
+//いいね機能（認証ユーザーのみ）
+Route::controller(NiceController::class)->middleware(['auth'])->group(function(){
+    Route::get('/nice/maps/{map}','nicemap')->name('do_good');//マップにいいねをする
+    Route::get('/unnice/maps/{map}','unnicemap')->name('donot_good');//マップのいいねを解除する
+    Route::get('/nice/locations/{location}','niceLoca')->name('nice');//ロケにいいねをする
+    Route::get('/unnice/locations/{location}','unniceLoca')->name('unnice');//ロケのいいねを解除する
+    Route::get('/nices','showNice');//ユーザーがいいねしたものの一覧を表示
+});
 
 //ロケ機能（認証ユーザーのみ）
 Route::controller(LocationController::class)->middleware(['auth'])->group(function(){
@@ -35,8 +42,6 @@ Route::controller(LocationController::class)->middleware(['auth'])->group(functi
     Route::get('/locations/locapop','showLocapop');//ロケ人気ランキングを表示
     Route::get('/locations/{location}','showLocadetail')->name('showLocadetail');//ロケ詳細画面を表示
 });
-Route::get('/nice/locations/{location}',[NiceController::class,'niceLoca'])->name('nice');//ロケにいいねをする
-Route::get('/unnice/locations/{location}',[NiceController::class,'unniceLoca'])->name('unnice');//ロケのいいねを解除する
 
 //投稿機能（認証ユーザーのみ）
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){

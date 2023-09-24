@@ -16,6 +16,6 @@ class Nicelocation extends Model
     
     //nicelocation：location＝多：１のリレーションを組む
     public function location(){
-        return $this->belongsTo(Locaiton::class);    
+        return $this->belongsTo(Location::class);    
     }
 }

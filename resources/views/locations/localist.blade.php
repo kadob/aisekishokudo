@@ -21,6 +21,7 @@
             <!--検索機能ここまで-->
             <!--人気ロケランキング画面に行く-->
             <h2><a href = "/locations/locapop">人気ロケランキング</a></h2>
+            <a href="/nices">いいね一覧</a>
             <div>
                 <!--LocationControllerのshowLocalistメソッドで受け取ったlocationsを回す-->
                 @foreach ($locations as $location)

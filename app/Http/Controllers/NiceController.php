@@ -42,4 +42,11 @@ class NiceController extends Controller
         $nicemap->delete();
         return back();
     }
+    
+    public function showNice(){
+        $user=Auth::user()->id;
+        $nicelocations=Nicelocation::where('user_id',$user)->get();
+        $nicemaps=Nicemap::where('user_id',$user)->get();
+        return view('nice.niced',compact('nicelocations','nicemaps'));
+    }
 }
