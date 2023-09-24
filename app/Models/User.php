@@ -52,4 +52,9 @@ class User extends Authenticatable
     public function nicemaps(){
         return $this->hasMany(Nicemap::class);
     }
+    
+    //post : user=多 : １のリレーションを組む
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }
