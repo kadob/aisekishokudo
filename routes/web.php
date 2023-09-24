@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\NiceController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::controller(MapController::class)->middleware(['auth'])->group(function(){
 Route::get('/nice/maps/{map}',[NiceController::class,'nicemap'])->name('do_good');//マップにいいねをする
 Route::get('/unnice/maps/{map}',[NiceController::class,'unnicemap'])->name('donot_good');//マップのいいねを解除する
 
-//認証ユーザーのみ
+//ロケ機能（認証ユーザーのみ）
 Route::controller(LocationController::class)->middleware(['auth'])->group(function(){
     Route::get('/locations','showLocalist');//ロケリスト画面を表示
     Route::get('/locations/search','searchLocation')->name('searchLocation');//ロケ検索
@@ -37,9 +38,16 @@ Route::controller(LocationController::class)->middleware(['auth'])->group(functi
 Route::get('/nice/locations/{location}',[NiceController::class,'niceLoca'])->name('nice');//ロケにいいねをする
 Route::get('/unnice/locations/{location}',[NiceController::class,'unniceLoca'])->name('unnice');//ロケのいいねを解除する
 
-/**Route::get('/', function () {
-    return view('welcome');
-});**/
+//投稿機能（認証ユーザーのみ）
+Route::controller(PostController::class)->middleware(['auth'])->group(function(){
+    Route::get('/posts','showList');
+    Route::post('/posts','store');
+    Route::get('/posts/create','createPost');
+    Route::get('/posts/{post}','showDetail');
+    Route::put('/posts/{post}','update');
+    Route::delete('/posts/{post}','delete');
+    Route::get('/posts/{post}/edit','edit');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

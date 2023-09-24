@@ -17,7 +17,7 @@
                     <p>{{ $location->celebrity}}</p>
             @endforeach
         <div class="footer">
-            <!--<a href="/posts/create">投稿</a>-->
+            <a href="/posts/create">投稿</a>
             <a href="/">マップ</a>
             <a href="/locations">検索</a>
         </div>

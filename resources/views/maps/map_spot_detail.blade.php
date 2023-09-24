@@ -22,7 +22,7 @@
                 <h2>グルメ</h2>
                 <p>{{$map->gormet}}</p>
                 <h2>キーワード</h2>
-                <p>{{$map->key_word}}</p>
+                <p >{{$map->key_word}}</p>
             </div>
             <!--マップいいね機能ここから-->
             <span>
@@ -47,7 +47,7 @@
         <footer>
             <nav>
                 <ul>
-                    <!--<li><a href="/posts/create">投稿</a></li>-->
+                    <li><a href="/posts/create">投稿</a></li>
                     <li><a href="/">マップ</a></li>
                     <li><a href="/locations">検索</a></li>
                 </ul>
