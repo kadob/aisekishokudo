@@ -18,7 +18,10 @@
                     <h5>出演者名</h5>
                     <p>{{ $location->celebrity}}</p>
                 @endforeach
-        </main><!--ページネーションつける-->
+            <div class='paginate'>
+                {{ $locations->links() }}
+            </div>
+        </main>
         <footer>
             <nav>
                 <ul>

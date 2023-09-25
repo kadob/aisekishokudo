@@ -52,7 +52,7 @@ class LocationController extends Controller
     public function showLocapop()
     {
         //リレーションを組むnicelocationからいいねの数で降順に並べて、取得したのを代入
-        $locations = Location::withCount('nicelocations')->orderBy('nicelocations_count','desc')->get();
+        $locations = Location::withCount('nicelocations')->orderBy('nicelocations_count','desc')->paginate(6);
         //locationsという変数を持たせてロケ人気ランキング画面を返す
         return view('locations/loca_sort_by_pop',compact('locations'));
     }
