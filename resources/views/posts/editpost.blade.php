@@ -29,7 +29,7 @@
                 </div>
                 <div>
                     <textarea name="post[content]" placeholder="〇〇〇のところが面白かった！">{{ $post->content }}</textarea>
-                    <!--エラー表示する-->
+                    <p class="content__error" style="color:red">{{ $errors->first('post.content') }}</p>
                 </div>
                 <input type="submit" value="保存する">
             </form>

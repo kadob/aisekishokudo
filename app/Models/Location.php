@@ -11,8 +11,8 @@ class Location extends Model
     public function getPaginateByLimit(int $limit_count = 6)
     {
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
-    
     }
+    
     use HasFactory;
     
     //map：location＝多：１のリレーションを組む
