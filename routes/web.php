@@ -48,7 +48,6 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts','showList');
     Route::post('/posts','store');
     Route::get('/posts/create','createPost');
-    Route::get('/posts/{post}','showDetail');
     Route::put('/posts/{post}','update');
     Route::delete('/posts/{post}','delete');
     Route::get('/posts/{post}/edit','edit');

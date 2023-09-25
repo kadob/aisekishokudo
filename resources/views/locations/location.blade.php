@@ -2,15 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>相席食堂ロケ詳細</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <title>Locadetail</title>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
     <body>
         <header>
-            <ul>
-                <li>ログイン</li>
-            </ul>
         </header>
         <main>
             <div>
@@ -25,8 +21,8 @@
                 <h2>キーフレーズ</h2>
                 <p>{{$location->key_phrase}}</p>
             </div>
+            <!--ロケいいね機能ここから-->
             <span>
-                <!--いいね機能ここから-->
                 @if($nicelocation)
 	                <a href="{{ route('unnice',$location)}}" class="btn btn-success btn-sm">
 	                いいね
@@ -50,7 +46,7 @@
                 <ul>
                     <li><a href="/posts/create">投稿</a></li>
                     <li><a href="/">マップ</a></li>
-                    <li><a href="/locations">検索</a></li>
+                    <li><a href="/locations">ロケ検索</a></li>
                 </ul>
             </nav>
         </footer>

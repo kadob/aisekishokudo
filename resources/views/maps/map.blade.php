@@ -2,9 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>相席食堂マップ</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">  
+        <title>Map</title>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> 
     </head>
     <body>
         <header>
@@ -28,7 +27,7 @@
         </header>
         <main>
             <!--マップ機能ここから-->
-            <div id="map" style="height:400px"></div>
+            <div id="map" style="height:400px"></div><!--スタイリングをstyles.cssにする-->
 	        <script src="{{ asset('/mapspot/mapspot.js') }}"></script>
 	        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.map_key')}}&callback=initMap" async defer></script>
 	        <!--マップ機能ここまで-->
@@ -38,7 +37,7 @@
                 <ul>
                     <li><a href="/posts/create">投稿</a></li>
                     <li><a href="/">マップ</a></li>
-                    <li><a href="/locations">検索</a></li>
+                    <li><a href="/locations">ロケ検索</a></li>
                 </ul>
             </nav>
         </footer>
