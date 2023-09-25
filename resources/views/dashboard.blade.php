@@ -1,17 +1,22 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <title>プロフィール</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>{{ __('Dashboard') }}</h1>
+        </header>
+        <main>
+            <p>ログイン完了！</p>
+        </main>
+        <footer>
+            <a href="/posts/create">投稿</a>
+            <a href="/">マップ</a>
+            <a href="/locations">検索</a>
+        </footer>
+    </body>
+</html>

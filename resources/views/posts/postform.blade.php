@@ -7,6 +7,22 @@
     </head>
     <body>
         <header>
+            <!--ログイン機能ここから-->
+            <div>
+                @if (Route::has('login'))
+                    <div>
+                        @auth
+                            <a href="/profile">プロフィール</a>
+                            @else
+                                <a href="{{ route('login') }}">ログイン</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">アカウント登録</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+            </div>
+            <!--ログイン機能ここまで-->
         </header>
         <main>
             <h1>投稿</h1>
@@ -23,7 +39,7 @@
                 <input type="hidden" name="post[user_id]" value="{{ $user_id }}">
                 <div>
                     <textarea name="post[content]" placeholder="〇〇〇のところが面白かった！">{{ old('post.content') }}</textarea>
-                    <p class="content__error" style="color:red">{{ $errors->first('post.content') }}</p>
+                    <p class="content__error">{{ $errors->first('post.content') }}</p>
                 </div>
                 <input type="submit" value="投稿する"/>
             </form>

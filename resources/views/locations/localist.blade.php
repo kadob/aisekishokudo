@@ -7,6 +7,22 @@
     </head>
     <body>
         <header>
+            <!--ログイン機能ここから-->
+            <div>
+                @if (Route::has('login'))
+                    <div>
+                        @auth
+                            <a href="/profile">プロフィール</a>
+                            @else
+                                <a href="{{ route('login') }}">ログイン</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">アカウント登録</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
+            </div>
+            <!--ログイン機能ここまで-->
         </header>
         <main>
             <h1>ロケリスト</h1>

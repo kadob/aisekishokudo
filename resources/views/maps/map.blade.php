@@ -12,7 +12,7 @@
                 @if (Route::has('login'))
                     <div>
                         @auth
-                            <a href="{{ url('/dashboard') }}">Dashboard</a>
+                            <a href="/profile">プロフィール</a>
                             @else
                                 <a href="{{ route('login') }}">ログイン</a>
                             @if (Route::has('register'))
@@ -21,13 +21,12 @@
                         @endauth
                     </div>
                 @endif
-                <a href="/profile">プロフィール</a>
             </div>
             <!--ログイン機能ここまで-->
         </header>
         <main>
             <!--マップ機能ここから-->
-            <div id="map" style="height:400px"></div><!--スタイリングをstyles.cssにする-->
+            <div id="map"></div>
 	        <script src="{{ asset('/mapspot/mapspot.js') }}"></script>
 	        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.map_key')}}&callback=initMap" async defer></script>
 	        <!--マップ機能ここまで-->

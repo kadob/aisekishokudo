@@ -1,0 +1,15 @@
+body{
+    font-family: sans-serif;
+    color: black;
+    background-color: #F0F8FF;
+}
+
+
+
+.content__error{
+    color:red
+}
+
+#map{
+    height:400px
+}
