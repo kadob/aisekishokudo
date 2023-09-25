@@ -2,24 +2,31 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>相席食堂ロケ人気ランキング</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <title>Locarank</title>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
     <body>
-        <h1>人気ロケランキング</h1>
-            @foreach($locations as $location)<!--LocationControllerのshowLocapopメソッドで受け取ったlocationsを回す-->
-                <h2>いいね数</h2>
+        <header>
+        </header>
+        <main>
+            <h1>人気ロケランキング</h1>
+                @foreach($locations as $location)<!--LocationControllerのshowLocapopメソッドで受け取ったlocationsを回す-->
+                    <h5>いいね数</h5>
                     <p>{{ $location->nicelocations_count }}</p>
-                <h2>日付</h2>
+                    <h5>日付</h5>
                     <p>{{ $location->date }}</p>
-                <h2>出演者名</h2>
+                    <h5>出演者名</h5>
                     <p>{{ $location->celebrity}}</p>
-            @endforeach
-        <div class="footer">
-            <a href="/posts/create">投稿</a>
-            <a href="/">マップ</a>
-            <a href="/locations">検索</a>
-        </div>
+                @endforeach
+        </main><!--ページネーションつける-->
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="/posts/create">投稿</a></li>
+                    <li><a href="/">マップ</a></li>
+                    <li><a href="/locations">ロケ検索</a></li>
+                </ul>
+            </nav>
+        </footer>
     </body>
 </html>

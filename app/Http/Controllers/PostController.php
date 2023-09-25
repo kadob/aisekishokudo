@@ -14,11 +14,6 @@ class PostController extends Controller
         return view('posts/postlist')->with(['posts' => $post->getPaginateByLimit()]);   
     }
     
-    public function showDetail(Post $post)
-    {
-        return view('posts/postdetail')->with(['post'=>$post]);
-    }
-    
     public function createPost(Location $location)
     {
         $user_id = auth()->id();
@@ -29,7 +24,7 @@ class PostController extends Controller
     {
         $input = $request['post'];
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts');
     }
     
     public function edit(Post $post)
@@ -42,7 +37,7 @@ class PostController extends Controller
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts');
     }
     
     public function delete(Post $post)
