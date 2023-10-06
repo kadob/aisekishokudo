@@ -1,51 +1,28 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Locarank</title>
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    </head>
-    <body>
-        <header>
-            <!--ログイン機能ここから-->
-            <div>
-                @if (Route::has('login'))
-                    <div>
-                        @auth
-                            <a href="/profile">プロフィール</a>
-                            @else
-                                <a href="{{ route('login') }}">ログイン</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">アカウント登録</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-            </div>
-            <!--ログイン機能ここまで-->
-        </header>
-        <main>
+<x-layout>
+    <x-slot name="title">
+        相席食堂ロケ人気ランキング
+    </x-slot>
+    <main>
             <h1>人気ロケランキング</h1>
-                @foreach($locations as $location)<!--LocationControllerのshowLocapopメソッドで受け取ったlocationsを回す-->
-                    <h5>いいね数</h5>
-                    <p>{{ $location->nicelocations_count }}</p>
-                    <h5>日付</h5>
+            <div>
+            @foreach($locations as $location)<!--LocationControllerのshowLocapopメソッドで受け取ったlocationsを回す-->
+                <a href="/locations/{{$location->id}}"><img src="{{ asset($location->image_path) }}" alt="相席食堂ロケ写真" class="aiseki-image"></a>
+                <div>
+                    <h4>日付</h4>
                     <p>{{ $location->date }}</p>
-                    <h5>出演者名</h5>
+                <div>
+                <div>
+                    <h4>旅人</h4>
                     <p>{{ $location->celebrity}}</p>
-                @endforeach
-            <div class='paginate'>
-                {{ $locations->links() }}
+                </div>
+                <div>
+                    <h4>いいね数</h4>
+                    <p>{{ $location->nicelocations_count }}</p>
+                </div>
+            @endforeach
             </div>
-        </main>
-        <footer>
-            <nav>
-                <ul>
-                    <li><a href="/posts/create">投稿</a></li>
-                    <li><a href="/">マップ</a></li>
-                    <li><a href="/locations">ロケ検索</a></li>
-                </ul>
-            </nav>
-        </footer>
-    </body>
-</html>
+        <div class='paginate'>
+            {{ $locations->links() }}
+        </div>
+    </main>
+</x-layout>

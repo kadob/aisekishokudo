@@ -18,7 +18,7 @@ class LocationSeeder extends Seeder
     {
         DB::table('locations')->insert([
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/具志堅用高.jpg',
             'celebrity' =>'菊池桃子',
             'date' =>'2018/01/04',
             'place' =>'青森県田舎館村',
@@ -29,7 +29,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/具志堅用高.jpg',
             'celebrity' =>'千原せいじ',
             'date' =>'2018/01/04',
             'place' =>'長崎県五島列島',
@@ -40,7 +40,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/かたせ梨乃.jpg',
             'celebrity' =>'かたせ梨乃',
             'date' => '2018/04/08',
             'place' =>'滋賀県近江八幡市沖島',
@@ -51,7 +51,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/千原せいじ.jpg',
             'celebrity' =>'千原せいじ',
             'date' => '2018/04/15',
             'place' =>'鹿児島県南九州市頴娃',
@@ -62,7 +62,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/具志堅用高.jpg',
             'celebrity' =>'具志堅用高',
             'date' =>'2018/04/22',
             'place' =>'大分県豊後高田市昭和の町',
@@ -73,7 +73,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/コロコロチキチキペッパーズ　ナダル.jpg',
             'celebrity' =>'コロコロチキチキペッパーズ　ナダル',
             'date' =>'2018/04/29',
             'place' =>'石川県珠洲市狼煙町',
@@ -84,7 +84,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/武井壮.jpg',
             'celebrity' =>'武井壮',
             'date' =>'2018/05/06',
             'place' =>'長野県高山村',
@@ -95,7 +95,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/横澤夏子.jpg',
             'celebrity' =>'横澤夏子',
             'date' =>'2018/05/13',
             'place' =>'東京都八丈島',
@@ -106,7 +106,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path'=> 'images/aiseki_shokudo/尼神インター渚.jpg',
             'celebrity' =>'尼神インター　渚',
             'date' =>'2018/05/20',
             'place' =>'沖縄県うるま市',
@@ -117,7 +117,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/長州力.jpg',
             'celebrity' =>'長州力',
             'date' =>'2018/05/27',
             'place' =>'北海道猿払村',
@@ -128,7 +128,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/鈴木奈々.jpg',
             'celebrity' =>'鈴木奈々',
             'date' =>'2018/06/03',
             'place' =>'三重県鳥羽市答志島',
@@ -139,7 +139,7 @@ class LocationSeeder extends Seeder
             'deleted_at' => null,
             ],
             [
-            //'image_id' => ,
+            'image_path' => 'images/aiseki_shokudo/間寛平.jpg',
             'celebrity' =>'間寛平',
             'date' =>'2018/06/10',
             'place' =>'岡山県備前市日生町',

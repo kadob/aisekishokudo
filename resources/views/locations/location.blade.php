@@ -1,70 +1,39 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Locadetail</title>
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    </head>
-    <body>
-        <header>
-            <!--ログイン機能ここから-->
-            <div>
-                @if (Route::has('login'))
-                    <div>
-                        @auth
-                            <a href="/profile">プロフィール</a>
-                            @else
-                                <a href="{{ route('login') }}">ログイン</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">アカウント登録</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-            </div>
-            <!--ログイン機能ここまで-->
-        </header>
-        <main>
-            <div>
-                <h2>出演者名</h2>
-                <p>{{$location->celebrity}}</p>
-                <h2>日付</h2>
-                <p>{{$location->date}}</p>
-                <h2>ロケ内容</h2>
-                <p>{{$location->overview}}</p>
-                <h2>ロケ地</h2>
-                <p>{{$location->place}}</p>
-                <h2>キーフレーズ</h2>
-                <p>{{$location->key_phrase}}</p>
-            </div>
-            <!--ロケいいね機能ここから-->
-            <span>
-                @if($nicelocation)
-	                <a href="{{ route('unnice',$location)}}" class="btn btn-success btn-sm">
-	                いいね
-		                <span class="badge">
-		                {{ $location->nicelocations()->count() }}
-		                </span>
-	                </a>
-                @else
-	                <a href="{{ route('nice',$location)}}" class="btn btn-secondary btn-sm">
-		            いいね
-		                <span class="badge">
-			            {{ $location->nicelocations()->count() }}
-		                </span>
-	                </a>
-                @endif
-                <!--いいね機能ここまで-->
-            </span>
-        </main>
-        <footer>
-            <nav>
-                <ul>
-                    <li><a href="/posts/create">投稿</a></li>
-                    <li><a href="/">マップ</a></li>
-                    <li><a href="/locations">ロケ検索</a></li>
-                </ul>
-            </nav>
-        </footer>
-    </body>
-</html>
+<x-layout>
+    <x-slot name="title">
+        相席食堂ロケ詳細
+    </x-slot>
+    <main>
+        <div>
+            <img src="{{ asset($location->image_path) }}" alt="相席食堂ロケ写真" class="aiseki-photo">
+            <h2>旅人</h2>
+            <p>{{$location->celebrity}}</p>
+            <h2>日付</h2>
+            <p>{{$location->date}}</p>
+            <h2>ロケ地</h2>
+            <p>{{$location->place}}</p>
+            <h2>キーフレーズ</h2>
+            <p>{{$location->key_phrase}}</p>
+            <h2 class="clear">ロケ内容</h2>
+            <p class="overview">{{$location->overview}}</p>
+        </div>
+        <!--ロケいいね機能ここから-->
+        <span class="nice">
+            @if($nicelocation)
+            <a href="{{ route('unnice',$location)}}">
+                ♥
+                <span class="badge">
+                    {{ $location->nicelocations()->count() }}
+                </span>
+            </a>
+            @else
+            <a href="{{ route('nice',$location)}}">
+                ♥
+                <span class="badge">
+                    {{ $location->nicelocations()->count() }}
+                </span>
+            </a>
+            @endif
+        </span>
+        <!--ロケいいね機能ここまで-->
+    </main>
+</x-layout>
