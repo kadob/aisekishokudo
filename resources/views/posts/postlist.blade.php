@@ -1,38 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Postlist</title>
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    </head>
-    <body>
-        <header>
-            <!--ログイン機能ここから-->
-            <div>
-                @if (Route::has('login'))
-                    <div>
-                        @auth
-                            <a href="/profile">プロフィール</a>
-                            @else
-                                <a href="{{ route('login') }}">ログイン</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">アカウント登録</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-            </div>
-            <!--ログイン機能ここまで-->    
-        </header>
-        <main>
-            <h1>投稿一覧</h1>
-            <div>
-                @foreach($posts as $post)
-                    <div>
-                        <h3>{{$post->location->celebrity}}</h3>
-                        <p>{{$post->content}}</p>
-                        <a href="/posts/{{ $post->id }}/edit">編集</a>
-                    </div>
+<x-layout>
+    <x-slot name="title">
+        マイ投稿リスト
+    </x-slot>
+    <main>
+        <h1>投稿一覧</h1>
+            @foreach($posts as $post)
+            <div class="postlist">
+                <div class="post_celebrity">
+                    <h4>旅人</h4>
+                    <p>{{$post->location->celebrity}}</p>
+                </div>
+                <div class="click">
+                    <button onclick="location.href='/posts/{{ $post->id }}/edit'">編集</button>
                     <form action="/posts/{{ $post->id }}" id="form_{{$post->id}}" method="post">
                         @csrf
                         @method('DELETE')
@@ -46,19 +25,15 @@
                             }
                         }
                     </script>
-                @endforeach
-            <div class='paginate'>
-                {{ $posts->links() }}
+                </div>
             </div>
-        </main>
-        <footer>
-            <nav>
-                <ul>
-                    <li><a href="/posts/create">投稿</a></li>
-                    <li><a href="/">マップ</a></li>
-                    <li><a href="/locations">ロケ検索</a></li>
-                </ul>
-            </nav>
-        </footer>
-    </body>
-</html>
+            <div>
+                <h5>投稿内容</h5>
+                <p>{{$post->content}}</p>
+            </div>
+            @endforeach
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
+    </main>
+</x-layout>

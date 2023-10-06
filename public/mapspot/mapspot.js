@@ -1,7 +1,7 @@
 function initMap() {
     map = document.getElementById("map");//map.blade.phpの<div id="map">と<div>に囲まれた部分を代入
-    let tokyoTower = {lat: 35.6585769, lng: 139.7454506};//東京タワーの緯度経度を設定
-    opt = {zoom: 13,center: tokyoTower,};//初期設定：13のズーム度合、上記の位置の東京タワーを中心にする　　
+    let tokyoTower = {lat: 38.6585769, lng: 135.7454506};//東京タワーの緯度経度を設定
+    opt = {zoom: 5,center: tokyoTower,};//初期設定：13のズーム度合、上記の位置の東京タワーを中心にする　　
     mapObj = new google.maps.Map(map, opt);//mapとoptを初期設定にしたグーグルマップインスタンスを生成
     
     //let 店の名前 = {緯度,軽度};で場所を定義

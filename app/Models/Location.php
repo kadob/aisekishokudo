@@ -26,4 +26,9 @@ class Location extends Model
     {
         return $this->hasMany(Nicelocation::class);    
     }
+    
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->string('image_path',100);//画像パス
             $table->string('celebrity',30);//出演者
             $table->string('date',10);//放送日
             $table->string('place',50);//〇〇県〇〇市

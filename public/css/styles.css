@@ -1,15 +1,369 @@
-body{
-    font-family: sans-serif;
+/*layout.blade.phpのスタイリング*/
+html * {
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: "メイリオ";
     color: black;
     background-color: #F0F8FF;
+    margin: 0 0 0 0;
+}
+
+.wrapper {
+    margin: 0 auto 0 auto;
+    max-width: 960px;
+}
+
+.headnav {
+    display: flex;
+}
+
+.logo {
+    margin: 0 0 0 30px; 
+    text-align: left;
+    line-height: 0;
+}
+
+.logo img {
+    width: 160px;    
+}
+
+.login {
+    margin-left: 430px;    
+}
+
+.header {
+    background-color: #3f5170;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.headnav li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 50px;
+}
+
+.headnav a:link {
+    color: white;
+    text-decoration: none;
+}
+.headnav a:visited {
+    color: white;
+    text-decoration: none;
+}
+.headnav a:hover {
+    color: white;
+    text-decoration: none;
+}
+.headnav a:active {
+    color: white;
+    text-decoration: none;
+}
+
+.footer {
+    text-align: center;
+    background-color: #3f5170;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.footnav li {
+    display: inline;
+    list-style-type: none;
+    margin-left: 125px;
+    margin-right: 125px;
+}
+
+.footnav a:link {
+    color: white;
+    text-decoration: none;
+}
+.footnav a:visited {
+    color: white;
+    text-decoration: none;
+}
+.footnav a:hover {
+    color: white;
+    text-decoration: none;
+}
+.footnav a:active {
+    color: white;
+    text-decoration: none;
+}
+
+/*map.blade.phpのスタイリング*/
+#map {
+    height: 475px;
+}
+
+/*localist.blade.php、niced.blade.php、loca_sort_by_pop.blade.php、postlist.blade.phpのスタイリング*/
+
+.search {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+}
+
+input[type="search"] {
+    flex-grow: 1; 
+    padding: 5px; 
+}
+
+button[type="submit"] {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.aiseki-image {
+    max-width: 100%;
+    height: auto;
+    padding: 0 1em 1em 0;
+}
+
+.date{
+    display: flex;
+}
+
+.date h4{
+    margin: 5px 20px 5px 0;
+}
+
+.date p{
+    margin: 5px 20px 5px 0;
+}
+
+.celebrity{
+    display: flex;
+}
+
+.celebrity h4{
+    margin: 5px 20px 5px 0;
+}
+
+.celebrity p{
+    margin: 5px 20px 5px 0;
+}
+
+.paginate {
+    text-align: center;    
+}
+
+.paginate li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.paginate a:hover{
+    background-color: #333;
+    color: #fff; 
+}
+
+.locamove a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.locamove a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.locamove a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.locamove a:active{
+    color: black;
+    text-decoration: none;
+}
+
+.mapspot{
+    display: flex;
+}
+
+.mapspot h4{
+    margin: 5px 20px 5px 0;
+}
+
+.mapspot p{
+    margin: 5px 20px 5px 0;
+}
+
+.mapspot a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.mapspot a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.mapspot a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.mapspot a:active{
+    color: black;
+    text-decoration: none;
 }
 
 
-
-.content__error{
-    color:red
+.nicecounts{
+    display: flex;
 }
 
-#map{
-    height:400px
+.nicecounts h4 {
+    margin: 5px 20px 5px 0;
+}
+
+.nicecounts p {
+    margin: 5px 20px 5px 0;
+}
+
+.postlist{
+    display: flex;
+}
+
+.post_celebrity {
+    flex: 1;
+}
+
+.click{
+    display: flex;
+    align-items: center;
+}
+
+buttton[onclick="location.href='/posts/{{ $post->id }}/edit'"]{
+    padding: 10px 10px;
+    margin-right: 10px;
+}
+
+button[type="button"]{
+    margin-left: 10px;
+    margin-right: 10px;    
+}
+
+/**postform.blade.phpとeditpost.blade.phpのスタイリング**/
+
+select[name="post[location_id]"] {
+    width: 30em;
+}
+
+textarea[name="post[content]"] {
+    width: 30em;
+    height: 6em;
+}
+
+.content__error {
+    color: red;
+}
+
+input[type="submit"] {
+    margin: 20px 0;
+    width: 30em;
+}
+
+.postmove a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.postmove a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+.postmove a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.postmove a:active{
+    color: black;
+    text-decoration: none;
+}
+
+/**location.blade.phpとmap_spot_detail.blade.phpのスタイリング**/
+
+.aiseki-photo{
+    max-width: 100%;
+    height: auto;
+    float: left;
+    padding: 0 1em 1em 0;
+}
+
+.clear{
+    clear: both;    
+}
+
+.overview{
+    line-height: 1.6;
+}
+
+.nice a:link {
+    color: red;
+    text-decoration: none;
+}
+.nice a:visited {
+    color: red;
+}
+.nice a:hover {
+    color: red;
+}
+.nice a:active {
+    color: red;
+}
+
+/**スマートフォン向けCSS**/
+@media (max-width: 767px) {
+    .wrapper {
+        max-width: 100%;
+        margin: 0 8px;
+    }
+    
+    .logo {
+        margin: 0 0 0 30px;
+    }
+    
+    .logo img {
+        width: 160px;    
+    }
+    
+    .login{
+        margin-left: 40px;    
+    }
+        
+    .footnav li {
+        display: inline;
+        list-style-type: none;
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+    
+    .aiseki-photo, .aiseki-image{
+        max-width: 100%;
+        height: auto;
+        padding-right: 0;
+    }
+    
+    select[name="post[location_id]"] {
+        width: 100%;
+    }
+
+    textarea[name="post[content]"] {
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        margin: 20px 0;
+        width: 100%;
+    }
 }
